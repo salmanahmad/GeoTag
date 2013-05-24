@@ -34,6 +34,8 @@
             $("#output").hide()
             $("#progress").hide()
             $("#error").show()
+            
+            $("#reason").html("Could not connect to server.")
           })
           
         }, function() {
@@ -41,6 +43,8 @@
           $("#output").hide()
           $("#progress").hide()
           $("#error").show()
+          
+          $("#reason").html("Could not activate GPS.")
         }, {
           enableHighAccuracy: true,
           timeout: 5000,
@@ -73,6 +77,7 @@
 <div id="error">
   <div class="alert alert-error">
     <h3>Could not process request. Try again.</h3>
+    <p id="reason"></p>
   </div>
 </div>
 
