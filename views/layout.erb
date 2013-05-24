@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="/stylesheets/style.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="/javascripts/jquery-2.0.0.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/javascripts/json2.js" type="text/javascript" charset="utf-8"></script>
+    
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap-responsive.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
+    <script src="/bootstrap/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+    
+    <title>GeoTag</title>
+  </head>
+  <body>
+    <div class="navbar navbar-static-top">
+      <div class="navbar-inner">
+        <a class="brand" href="#">GeoTag</a>
+        <ul class="nav">
+          <li class="<%= "active" if @page == "home" %>"><a href="/">Generate</a></li>
+          <li class="<%= "active" if @page == "list" %>"><a href="/tags">List</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="container-fluid">
+      <div style="" class="row-fluid">
+        <div class="span12">
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

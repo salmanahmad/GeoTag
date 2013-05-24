@@ -1,0 +1,26 @@
+#actions {
+  text-align:center;
+}
+
+#output, #error, #progress {
+  text-align:center;
+  margin-top:50px;
+  margin-bottom:50px;
+  display:none;
+}
+
+#output h3, #error h3, #progress h3 {
+  font-weight:normal;
+}
+
+body {
+  padding-bottom: 40px;
+}
+
+#actions {
+  margin-top:50px;
+}
+
+#actions input {
+  width:100%;
+}

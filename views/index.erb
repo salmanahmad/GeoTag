@@ -1,0 +1,81 @@
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $("#generate").click(function() {
+      if(!$("#generate").hasClass("disabled")) {
+        
+        //$("#generate").addClass("disabled");
+        $("#output").hide()
+        $("#progress").show()
+        $("#error").hide()
+        
+        navigator.geolocation.getCurrentPosition(function(position) {
+          console.log(position);
+          var request = $.post("/tags", {
+            longitude: position.coords.longitude,
+            latitude: position.coords.latitude,
+          })
+          
+          request.done(function(data) {
+            data = JSON.parse(data)
+            console.log(data)
+            
+            $("#tag-id").html(data.id)
+            $("#tag-lng").html(parseFloat(data.longitude).toFixed(2))
+            $("#tag-lat").html(parseFloat(data.latitude).toFixed(2))
+            
+            //$("#generate").removeClass("disabled");
+            $("#output").show()
+            $("#progress").hide()
+            $("#error").hide()
+          })
+          
+          request.fail(function() {
+            //$("#generate").removeClass("disabled")
+            $("#output").hide()
+            $("#progress").hide()
+            $("#error").show()
+          })
+          
+        }, function() {
+          //$("#generate").removeClass("disabled")
+          $("#output").hide()
+          $("#progress").hide()
+          $("#error").show()
+        }, {
+          enableHighAccuracy: true,
+          timeout: 5000,
+          maximumAge: 0
+        })
+      }
+    })
+  })
+</script>
+
+<div id="output">
+  <div class="alert alert-success">
+    <h3>
+      <b id="tag-id">5</b>:
+      (<span id="tag-lng"></span>, <span id="tag-lat"></span>)
+    </h3>
+  </div>
+</div>
+
+<div id="progress">
+  <div class="alert alert-info">
+    <div style="margin-top:20px">
+      <div class="progress progress-striped active">
+        <div class="bar" style="width: 100%;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="error">
+  <div class="alert alert-error">
+    <h3>Could not process request. Try again.</h3>
+  </div>
+</div>
+
+<div id="actions">
+  <input type="button" id="generate" value="Generate GeoTag" class="btn btn-large btn-primary">
+</div>

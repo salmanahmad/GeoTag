@@ -1,0 +1,14 @@
+<table style="margin-top:20px;margin-bottom:50px" class="table table-striped table-bordered table-hover">
+  <tr>
+    <th>Id</th>
+    <th>Location</th>
+    <th>Time</th>
+  </tr>
+  <% for tag in @tags do %>
+    <tr>
+      <td><%= tag[:id] %></td>
+      <td>(<%= tag[:longitude].round(2) %>, <%= tag[:latitude].round(2) %>)</td>
+      <td><%= tag[:created_at].strftime('%_m/%e at %l:%M %p') %></td>
+    </tr>
+  <% end %>
+</table>
