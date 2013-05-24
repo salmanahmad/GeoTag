@@ -38,13 +38,14 @@
             $("#reason").html("Could not connect to server.")
           })
           
-        }, function() {
+        }, function(error) {
           //$("#generate").removeClass("disabled")
           $("#output").hide()
           $("#progress").hide()
           $("#error").show()
           
           $("#reason").html("Could not activate GPS.")
+          console.log(error)
         }, {
           enableHighAccuracy: true,
           timeout: 5000,
