@@ -8,7 +8,7 @@
     <tr>
       <td><%= tag[:id] %></td>
       <td>(<%= tag[:longitude].round(2) %>, <%= tag[:latitude].round(2) %>)</td>
-      <td><%= tag[:created_at].strftime('%_m/%e at %l:%M %p') %></td>
+      <td><%= tag[:created_at].localtime("-04:00").strftime('%_m/%e at %l:%M %p') %></td>
     </tr>
   <% end %>
 </table>
