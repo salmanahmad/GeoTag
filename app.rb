@@ -4,7 +4,7 @@ require 'sinatra'
 require 'sequel'
 require 'json'
 
-DB = Sequel.connect(ENV['HEROKU_POSTGRESQL_CHARCOAL_URL'] || 'postgres://localhost/geotag')
+DB = Sequel.connect(ENV['DATABASE_URL'] || 'postgres://localhost/geotag')
 
 DB.create_table? :tags do
   primary_key :id
