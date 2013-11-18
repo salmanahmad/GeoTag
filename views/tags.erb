@@ -7,7 +7,7 @@
   <% for tag in @tags do %>
     <tr>
       <td><%= tag[:id] %></td>
-      <td>(<%= tag[:longitude].round(2) %>, <%= tag[:latitude].round(2) %>)</td>
+      <td>(<%= tag[:longitude] %>, <%= tag[:latitude] %>)</td>
       <td><%= tag[:created_at].localtime("-04:00").strftime('%_m/%e at %l:%M %p') %></td>
     </tr>
   <% end %>
